@@ -1,8 +1,8 @@
-# PMPP Evaluation Tasks (eval-tasks)
+# PMPP Coding Evaluation
 
 ## Overview
 
-This directory contains 53 CUDA programming evaluation tasks based on the "Programming Massively Parallel Processors" (PMPP) textbook by Hwu, Kirk, and Hajj. Each task evaluates a specific CUDA programming concept or optimization technique.
+This directory contains 53 CUDA programming evaluation tasks based on the "Programming Massively Parallel Processors" (PMPP) textbook by Hwu, Kirk, and Hajj. Each task evaluates a specific CUDA programming concept.
 
 **Source:** [SinatrasC/pmpp-eval](https://github.com/SinatrasC/pmpp-eval)
 
@@ -205,41 +205,8 @@ Each test harness (`test_*.cu`):
 - Linux/WSL2 (recommended)
 
 ### Hardware
-- NVIDIA GPU with compute capability 5.0+
+- NVIDIA GPU
 - Recommended: 4GB+ VRAM
-
----
-
-## Task Naming Convention
-
-Format: `chXX-topic-variant`
-
-- `chXX` - Chapter number (02-21)
-- `topic` - Task topic (e.g., vecadd, matmul, histogram)
-- `variant` - Task variant:
-  - `single-turn` - Single-turn task
-  - `multiturn` - Multi-turn task
-  - `basic` - Basic implementation
-  - `tiled` - Tiled/optimized version
-  - `dp` - Dynamic parallelism
-
----
-
-## Dataset Integration
-
-Tasks are referenced in `pmpp/datasets/pmpp_coding.jsonl`:
-
-```json
-{
-  "type": "coding",
-  "id": "ch02-vecadd-single-turn",
-  "question": "Task: ch02-vecadd-single-turn\n...",
-  "task_dir": "eval-tasks/ch02-vecadd-single-turn",
-  "student_file": "student_kernel.cu",
-  "student_targets": ["test_student"],
-  "timeout_sec": 180
-}
-```
 
 ---
 
@@ -269,16 +236,6 @@ tar -xzf eval-tasks.tar.gz
 uv run vf-eval pmpp -n 5 \
   --env-args '{"use_bundled_tasks": true}'
 ```
-
----
-
-## Task Statistics
-
-- **Total Tasks:** 53 CUDA coding tasks
-- **Difficulty Range:** Beginner to advanced
-- **Average Completion Time:** 2-5 minutes per task (for LLMs)
-- **Compilation Time:** ~1-3 seconds per task
-- **Execution Time:** <1 second per test
 
 ---
 
@@ -329,12 +286,3 @@ Evaluation tasks are distributed under the same license as the PMPP codebase.
 - **Issues:** [GitHub Issues](https://github.com/SinatrasC/pmpp-eval/issues)
 - **Documentation:** [PMPP Environment README](https://github.com/SinatrasC/prime-environments/tree/pmpp)
 - **Author:** Sinatras - [GitHub](https://github.com/SinatrasC) · [X](https://x.com/myainotez)
-
----
-
-## References
-
-- **Textbook:** "Programming Massively Parallel Processors" by Hwu, Kirk, and Hajj
-- **CUDA Programming Guide:** [NVIDIA CUDA Documentation](https://docs.nvidia.com/cuda/)
-- **GitHub Repository:** [SinatrasC/pmpp-eval](https://github.com/SinatrasC/pmpp-eval)
-
